@@ -24,12 +24,10 @@ app.listen(app.get('port'), function () {
 function getDate(s) {
     // string contains either a unix timestamp or a
     // natural language date (example: January 1, 2016)
-    if (!s) {
-        return;
-    } else if (/^\d+$/.test(s)) { // unix timestamp
+    if (/^\d+$/.test(s)) { // unix timestamp
         return new Date(parseInt(s, 10) * 1000);
     } else {
-        return new Date(Date.parse(s));
+        return Date.parse(s) ? new Date(Date.parse(s)) : void 0;
     }
 }
 
