@@ -18,8 +18,8 @@
             <ul>3) If it does not contain a date or Unix timestamp, it returns null for those properties.</ul>
         </blockquote>
         <h3>Example usage:</h3>
-        <code>https://timestamp-ms.herokuapp.com/December%2015,%202015</code><br>
-        <code>https://timestamp-ms.herokuapp.com/1450137600</code>
+        <code><a href="December%2015,%202015">December%2015,%202015</a></code><br>
+        <code><a href="1450137600">1450137600</a></code>
         <h3>Example output:</h3>
         <code>
                 {
@@ -28,7 +28,16 @@
                 }
             </code>
     </div>
-
+    <script>
+        Array.prototype.forEach.call(
+            document.querySelectorAll('a'),
+            function(el) {
+                var newLink = window.location + el.getAttribute('href');
+                el.setAttribute('href', newLink);
+                el.innerHTML = newLink;
+            }
+        )
+    </script>
 </body>
 
 </html>
